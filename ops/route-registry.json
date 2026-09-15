@@ -44,6 +44,38 @@
       ]
     },
     {
+      "route": "/life-skills/meta-privacy.html",
+      "surface": "public_life_skills_meta_privacy_policy",
+      "access": "public",
+      "required_role": null,
+      "workspace_scope_required": false,
+      "public_allowed": true,
+      "expected_logged_out_behavior": "load_anonymous_meta_app_privacy_policy_without_login_or_private_data",
+      "expected_logged_in_behavior": "load_anonymous_meta_app_privacy_policy_without_private_data",
+      "privacy_risk": "normal",
+      "security_expectation": "Static compliance page only. It describes the administrator-side Meta advertising integration and has no form, tracking, credential, client, or private-record content.",
+      "related_goal_ids": [
+        "GOAL-CORE-003",
+        "GOAL-CORE-006"
+      ]
+    },
+    {
+      "route": "/life-skills/meta-data-deletion.html",
+      "surface": "public_life_skills_meta_data_deletion_instructions",
+      "access": "public",
+      "required_role": null,
+      "workspace_scope_required": false,
+      "public_allowed": true,
+      "expected_logged_out_behavior": "load_anonymous_meta_app_data_deletion_instructions_without_login_or_private_data",
+      "expected_logged_in_behavior": "load_anonymous_meta_app_data_deletion_instructions_without_private_data",
+      "privacy_risk": "normal",
+      "security_expectation": "Static compliance page only. The verified public WhatsApp link is a request channel; no deletion, account, credential, or private-record action occurs on this page.",
+      "related_goal_ids": [
+        "GOAL-CORE-003",
+        "GOAL-CORE-006"
+      ]
+    },
+    {
       "route": "/public",
       "surface": "one_time_join_domain_public_alias",
       "access": "public",

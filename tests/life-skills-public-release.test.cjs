@@ -156,3 +156,30 @@ test('Life Skills route is registered as anonymous-safe', () => {
   assert.equal(route.public_allowed, true);
   assert.equal(route.workspace_scope_required, false);
 });
+
+test('Meta compliance pages are public, factual, crawlable static documents', () => {
+  const privacy = read('meta-privacy.html');
+  const deletion = read('meta-data-deletion.html');
+  const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'ops', 'route-registry.json'), 'utf8'));
+  const sitemap = fs.readFileSync(path.join(ROOT, 'public', 'sitemap.xml'), 'utf8');
+
+  for (const [file, source] of Object.entries({ privacy, deletion })) {
+    assert.match(source, /content="index, follow"/, file);
+    assert.match(source, /Content-Security-Policy/, file);
+    assert.match(source, /https:\/\/wa\.me\/972534932631/, file);
+    assert.doesNotMatch(source, /Facebook Login/i, file);
+    assert.doesNotMatch(source, /clinical/i, file);
+  }
+  assert.match(privacy, /does not request or store Facebook or Instagram profile data/i);
+  assert.match(privacy, /does not retain Meta platform data/i);
+  assert.match(deletion, /Meta data deletion request/);
+  assert.match(deletion, /does not maintain a Meta user-profile database/i);
+  for (const route of ['/life-skills/meta-privacy.html', '/life-skills/meta-data-deletion.html']) {
+    const entry = registry.routes.find((item) => item.route === route);
+    assert.ok(entry, route);
+    assert.equal(entry.access, 'public', route);
+    assert.equal(entry.public_allowed, true, route);
+    assert.equal(entry.workspace_scope_required, false, route);
+    assert.match(sitemap, new RegExp(`https://bneineviimacademy\\.org${route.replace('.', '\\.')}`));
+  }
+});
