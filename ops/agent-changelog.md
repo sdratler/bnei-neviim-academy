@@ -40526,3 +40526,32 @@ Report: ops/agent-fleet-runs/2026-07-07T14-31-54-632Z-task-1518.md
   hero plus CTA remains inside each tested first viewport.
 - Source and downstream focused tests pass; external public deployment and
   public URL readback are recorded after the production PR is merged.
+
+## 2026-09-15 - Life Skills Meta compliance pages published and verified
+
+- `META-LS-20260915-01`: the owner explicitly authorized the two public
+  compliance pages and renewed the request to finish the approved ad launch.
+- Published `/life-skills/meta-privacy.html` and
+  `/life-skills/meta-data-deletion.html` on `https://bneineviimacademy.org`
+  from `be55ce4dc05babbe40471265a0f6418d6effb5d4`; the same commit is pushed
+  to `fork/codex/life-skills-meta-compliance-20260915`.
+- Coordinator evidence records Railway deployment
+  `c2d41f33-5973-452e-a871-9079eb2f6f10` as `SUCCESS` on the existing BNA
+  `skillful-motivation` service. Independent anonymous HTTPS readback on
+  2026-09-15 returned HTTP 200 for both pages, exact canonical URLs,
+  `index, follow`, no restrictive X-Robots-Tag, and the existing public
+  WhatsApp contact. Root `robots.txt` returned HTTP 200 with `Allow: /`.
+- Existing implementation verification recorded by the coordinator:
+  Life Skills public release tests 9/9, public route privacy contract 6/6,
+  route-registry JSON and sitemap checks passed.
+- This closeout changes records only. Meta app `1550022839650268` mode was
+  neither changed nor verified; no creative or campaign mutation occurred.
+  Browser and native control fail during kernel initialization with a
+  path-not-found error, including after reset. The coordinator found no
+  `LS_META` credential in Process/User/Machine environment scopes. These are
+  execution-access failures, not evidence that Meta requires App Review.
+- Remaining owner: coordinator / authenticated Meta operator. Restore a
+  supported authenticated control path, save these exact URLs in the existing
+  Meta app, verify Live mode, then resume the prepared paused Hebrew creative
+  and launch under the existing budget, placements and end-date authorization.
+  Preserve the old Hebrew campaign until the successor is confirmed active.
